@@ -3,7 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background: url('lib/images/Background_Dance_Party.jpg');
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -15,13 +15,65 @@ body, a:link, a:visited, a:active{
 }
 .topbar{
   height:32px;
-  background-color: #555;
-}
-.title{
-  background-color: #777;
-}
+  /*background-color: #555;*/
+/*}
+.title{*/
+/*  background-color: #777;
+*/}
 .dancer{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
 }
+
+#moon {
+  height: 20px;
+  width: 20px;
+  background-image: url('lib/images/MoonTransparent.jpg');
+ /* border: 10px solid blue;*/
+  border-radius: 10px;
+  position:absolute;
+
+  /*display: block;*/
+}
+
+#diamond{
+  border-radius:10px;
+  border: none;
+  width: 45px;
+  height: 45px;
+  background: radial-gradient( #FC16DD, #16D6FC, #AE12F1, #16D6FC);
+  /*background: #1eff00;*/
+  /* Rotate */
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /* Rotate Origin */
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  margin: 60px 0 10px 310px;
+}
+
+#alien{
+  height: 40px;
+  width: 40px;
+  background-image: url('lib/images/AlienJayPeeGee.jpg');
+  border-radius: 10px;
+  position: absolute;
+}
+
+#nebula{
+  height: 52px;
+  width: 40px;
+  background-image: url('lib/images/nebula.jpg');
+  border-radius: 30px;
+  position: absolute;
+}
+
+
+

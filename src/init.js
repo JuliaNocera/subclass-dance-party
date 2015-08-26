@@ -16,18 +16,44 @@ $(document).ready(function(){
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
     // make a dancer with a random position
+    var top = $("body").height() * Math.random() + 40;
+    var left = $("body").width() * Math.random() + 40;
+    var timeInterval =  Math.random() * 1000;
 
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
+    //var dancer = new BlinkyDancer(top, left, timeInterval);
+    var dancer = new dancerMakerFunction(top, left, timeInterval);
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+  $('.lineUp').on("click", function(event){
+    for(var i = 0; i < window.dancers.length; i++){
+      window.dancers[i].lineUp();
+    }
+  });
+  $('.OGPose').on("click", function(event){
+    for(var i = 0; i < window.dancers.length; i++){
+      window.dancers[i].goBack();
+    }
+  });
+    var clickDuration = 0;
+    $('body').on("mousedown", function(e){
+        clickDuration = new Date().getTime();
+    });
+    $('body').on("mouseup", function(e){
+        clickDuration = new Date().getTime() - clickDuration;
+    });
+  $('body').click(function(e){
+    console.log(e);
+    var offset = $(this).offset();
+    var yOffset = (e.pageY - offset.top);
+    if(yOffset<=35) return;
+    var xOffset = (e.pageX - offset.left);
+    var timeIntervalFromClick = 1 / clickDuration * 1500;
+    $('body').append(new PictureDancer(50, xOffset, timeIntervalFromClick).$node);
+
+  })
 });
 
